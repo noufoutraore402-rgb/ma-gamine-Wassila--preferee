@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#160f2c">
+<title>Wassila — Une journée magique</title>
+<style>
+:root{--bg:#160f2c;--gold:#f5d88e;--cream:#fff8f5;--muted:#e6d4e5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#684575,#302047 40%,var(--bg) 80%);color:var(--cream);font-family:Georgia,serif;overflow-x:hidden}
+button{font:inherit}.sky{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(2px 2px at 12% 20%,#fff 98%,transparent),radial-gradient(1px 1px at 76% 30%,#ffe7b1 98%,transparent),radial-gradient(2px 2px at 40% 72%,#fff 98%,transparent);background-size:260px 240px;opacity:.5;animation:glow 5s infinite alternate;z-index:0}@keyframes glow{to{opacity:.85}}
+.wrap{width:min(100% - 34px,940px);margin:auto;position:relative;z-index:1}.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:48px 0}.kicker{font:11px Arial;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(3.8rem,14vw,8rem);font-weight:400;line-height:.9;margin:17px 0;color:#fff5fb;text-shadow:0 0 36px #f2b8d066}.hero p{max-width:630px;margin:17px auto;color:#f0ddeb;font-size:clamp(1rem,3vw,1.2rem);line-height:1.7}.date{display:inline-block;border:1px solid #f5d88e88;border-radius:40px;padding:11px 18px;color:var(--gold);font:12px Arial;letter-spacing:.13em}
+.countdown-wrap{width:min(100%,660px);margin:26px auto 0;padding:20px 16px;border:1px solid #f5d88e66;border-radius:22px;background:#130d25a8;box-shadow:0 15px 45px #09051366}.countdown-title{font:11px Arial;letter-spacing:.2em;text-transform:uppercase;color:#f5d88e}.timer{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:17px 0 8px}.unit{width:calc(25% - 8px);min-width:65px;padding:12px 4px;border:1px solid #f4bfd355;background:#ffffff0b;border-radius:14px}.unit strong{display:block;font:bold clamp(1.55rem,6vw,2.3rem) Arial;color:var(--gold)}.unit span{font:9px Arial;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}#timerNote{margin:8px 0 0;color:#f0ddeb;font-size:14px}.down{display:block;margin-top:22px;color:var(--muted);font:10px Arial;letter-spacing:.16em;text-transform:uppercase}.down b{display:block;font-size:20px;margin-top:7px;animation:float 1.6s infinite}@keyframes float{50%{transform:translateY(6px)}}
+section{padding:54px 0;text-align:center}h2{font-weight:400;font-size:clamp(2rem,6vw,3.1rem);margin:0 0 15px}.lead{max-width:650px;margin:0 auto 25px;color:var(--muted);line-height:1.85}.panel{padding:clamp(22px,5vw,40px);border:1px solid #f5d3e633;border-radius:26px;background:linear-gradient(145deg,#ffffff13,#ffffff07);box-shadow:0 22px 65px #08051155}
+.locked{max-width:560px;margin:22px auto 0;padding:20px;border:1px solid #f5d88e55;border-radius:18px;background:#120c24aa;color:#f6e8ef;line-height:1.7}.lock-icon{font-size:28px;display:block;margin-bottom:8px}.locked strong{color:var(--gold)}
+.envelope{display:block;width:min(270px,78vw);height:165px;margin:28px auto 18px;position:relative;border:1px solid #f4c5d9;border-radius:10px;background:linear-gradient(145deg,#f8dce8,#d99cbd);box-shadow:0 15px 45px #09051366;cursor:pointer}.envelope:before{content:"";position:absolute;inset:0;background:#efc1d7;clip-path:polygon(0 0,50% 58%,100% 0);transform-origin:top;transition:transform .65s;z-index:2}.envelope.open:before{transform:rotateX(180deg)}.envelope:after{content:"✦";position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);color:#9d547d;font-size:30px}.letter{display:none;max-width:650px;margin:25px auto 0;text-align:left;color:#fff3f8;line-height:1.95}.letter.show{display:block;animation:appear .8s ease both}@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}.photo{min-height:235px;border:1px solid #f4c5d966;border-radius:18px;background:#ffffff0c;display:grid;place-items:center;padding:8px;overflow:hidden;color:#e8cddd}.photo img{width:100%;height:255px;object-fit:cover;object-position:center 35%;border-radius:12px}.photo .placeholder{font:13px Arial;line-height:1.7}.cake{font-size:80px;margin:22px 0 8px;filter:drop-shadow(0 8px 20px #f6bfd566)}.flame{display:inline-block;animation:flicker .7s infinite alternate;transform-origin:bottom}@keyframes flicker{to{transform:scale(.8) rotate(5deg);opacity:.65}}.blown .flame{visibility:hidden}
+.btn{border:1px solid var(--gold);border-radius:999px;color:#241532;background:var(--gold);padding:13px 23px;cursor:pointer;margin-top:14px;transition:.2s}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px #f7d98a44}.btn:disabled{opacity:.7;cursor:default}.btn:focus-visible,.envelope:focus-visible{outline:3px solid white;outline-offset:4px}.closing{font-size:clamp(1.2rem,4vw,1.7rem);line-height:1.7;color:#f6ddeb}.foot{text-align:center;padding:40px 0 50px;color:#d9c2d8;font:12px Arial}.heart{color:#f5a8c8}.petal{position:fixed;top:-30px;z-index:5;pointer-events:none;animation:fall linear forwards}@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(600deg);opacity:.12}}
+[hidden]{display:none!important}@media(max-width:650px){.gallery{grid-template-columns:1fr}.photo{min-height:270px}.photo img{height:330px;object-position:center 30%}section{padding:42px 0}.unit{width:calc(25% - 8px);min-width:62px}.countdown-wrap{padding:16px 9px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style></head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+<header class="hero wrap">
+ <div>
+  <div class="kicker" id="introKicker" hidden>Une journée rien que pour toi</div><h1 id="introName" hidden>Wassila</h1>
+  <p id="introText" hidden>Il y a des personnes qui rendent la vie plus belle simplement par leur présence. Cette surprise a été préparée spécialement pour toi.</p>
+  <div class="date" id="introDate" hidden>29 NOVEMBRE 2026 · JOYEUX ANNIVERSAIRE</div>
+  <div class="countdown-wrap">
+   <div class="countdown-title">Le compte à rebours a commencé ✨</div>
+   <div class="timer" aria-live="polite"><div class="unit"><strong id="days">--</strong><span>Jours</span></div><div class="unit"><strong id="hours">--</strong><span>Heures</span></div><div class="unit"><strong id="minutes">--</strong><span>Minutes</span></div><div class="unit"><strong id="seconds">--</strong><span>Secondes</span></div></div>
+   <p id="timerNote">Ma gamine préférée revient à la fin du compte à rebours pour voir les surprises 💖</p>
+  </div>
+  <span class="down" id="scrollPrompt" hidden>Fais défiler pour découvrir la surprise <b>↓</b></span>
+ </div>
+</header>
+<main id="birthdayContent" hidden>
+<section class="wrap">
+ <h2>Un souvenir de toi 💫</h2><p class="lead">Parce qu'un sourire comme le tien mérite une place dans cette petite surprise.</p>
+ <div class="gallery"><div class="photo"><img src="images/photo-1.jpg" alt="Portrait de Wassila"></div><div class="photo"><img src="images/photo-2.jpg" alt="Souvenir de Wassila" style="object-position:center 62%"></div><div class="photo"><img src="images/photo-3.jpg" alt="Un moment précieux" style="object-position:center 33%"></div></div>
+</section>
+<section class="wrap" id="voeux">
+ <div class="panel"><div class="kicker">Un petit secret à découvrir</div><h2>Une lettre pour toi</h2><p class="lead">Un message t'attend. Il sera disponible le jour de ton anniversaire.</p>
+  <div class="locked" id="letterLock"><span class="lock-icon">🔒</span><strong>Cette surprise est encore fermée.</strong><br>Reviens le 29 novembre pour découvrir tes vœux.</div>
+  <div id="letterContent" hidden><p class="lead">Clique sur l'enveloppe pour ouvrir ta lettre.</p><button class="envelope" id="envelope" type="button" aria-label="Ouvrir la lettre"></button><article class="letter" id="letter"><p>Chère Wassila,</p><p>En ce jour spécial, je voulais prendre un instant pour te rappeler que tu es une personne qui compte énormément. Certaines présences sont difficiles à expliquer : elles apportent de la joie, de la force et de beaux souvenirs, tout simplement.</p><p>Je te souhaite une nouvelle année remplie de santé, de paix, de réussite et de moments qui te feront sourire. Que tes projets prennent vie, que tes efforts portent leurs fruits et que tu trouves mille raisons d'être heureuse.</p><p>Merci d'être cette personne précieuse. Profite pleinement de ta journée : elle est à ton image, unique. ❤️</p><p style="text-align:right;color:var(--gold)">Avec beaucoup d'affection ✨</p></article></div>
+ </div>
+</section>
+<section class="wrap" id="bougies">
+ <div class="panel"><div class="kicker">Le moment magique</div><h2>Un gâteau rien que pour toi 🎂</h2><p class="lead">Les bougies et ton vœu spécial seront disponibles uniquement le 29 novembre.</p>
+  <div class="locked" id="cakeLock"><span class="lock-icon">🔒</span><strong>Le gâteau attend ton jour spécial.</strong><br>Reviens le 29 novembre pour allumer puis souffler tes bougies.</div>
+  <div id="cakeContent" hidden><div class="cake" id="cake"><span class="flame">🕯️</span>🎂</div><p class="lead" id="cakeText">Ferme les yeux, fais un vœu… puis souffle sur les bougies.</p><button class="btn" id="blow" type="button">Souffler les bougies ✨</button></div>
+ </div>
+</section>
+<section class="wrap"><p class="closing">Que cette nouvelle année de ta vie soit aussi lumineuse que ton sourire. <span class="heart">♥</span></p></section>
+</main><footer class="foot wrap" id="birthdayFooter" hidden>Fait avec <span class="heart">♥</span> pour Wassila · 29 novembre 2026</footer>
+<script>
+const birthdayYear=2026,birthdayMonth=10,birthdayDay=29;
+function isBirthday(){const d=new Date();return d.getFullYear()===birthdayYear&&d.getMonth()===birthdayMonth&&d.getDate()===birthdayDay}
+const target=new Date(2026,10,29,0,0,0).getTime(),pad=n=>String(n).padStart(2,"0");
+function tick(){
+ const diff=target-Date.now(),note=document.getElementById("timerNote");
+ if(isBirthday()){["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");note.textContent="C'est aujourd'hui !"}
+ else if(diff>0){document.getElementById("days").textContent=Math.floor(diff/86400000);document.getElementById("hours").textContent=pad(Math.floor(diff/3600000)%24);document.getElementById("minutes").textContent=pad(Math.floor(diff/60000)%60);document.getElementById("seconds").textContent=pad(Math.floor(diff/1000)%60);note.textContent="Ma gamine préférée revient à la fin du compte à rebours pour voir les surprises 💖"}
+ else{["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");note.textContent="Joyeux anniversaire, Wassila !"}
+}
+function applyBirthdayAccess(){
+ const open=isBirthday();
+ document.getElementById("birthdayContent").hidden=!open;
+ document.getElementById("birthdayFooter").hidden=!open;
+ ["introKicker","introName","introText","introDate","scrollPrompt"].forEach(id=>document.getElementById(id).hidden=!open);
+ document.getElementById("letterContent").hidden=!open;document.getElementById("letterLock").hidden=open;
+ document.getElementById("cakeContent").hidden=!open;document.getElementById("cakeLock").hidden=open;
+}
+tick();applyBirthdayAccess();setInterval(()=>{tick();applyBirthdayAccess()},1000);
+function confetti(n){const symbols=["✦","✧","❀","♥"];for(let i=0;i<n;i++){const p=document.createElement("span");p.className="petal";p.textContent=symbols[Math.floor(Math.random()*symbols.length)];p.style.left=Math.random()*100+"vw";p.style.color=["#f6bdd5","#f7d98a","#fff"][Math.floor(Math.random()*3)];p.style.fontSize=12+Math.random()*15+"px";p.style.setProperty("--drift",Math.random()*180-90+"px");p.style.animationDuration=3+Math.random()*4+"s";document.body.appendChild(p);setTimeout(()=>p.remove(),7500)}}
+document.getElementById("envelope").addEventListener("click",function(){if(!isBirthday())return;this.classList.add("open");this.setAttribute("aria-label","Lettre ouverte");document.getElementById("letter").classList.add("show");confetti(24)});
+document.getElementById("blow").addEventListener("click",function(){if(!isBirthday())return;document.getElementById("cake").classList.add("blown");document.getElementById("cakeText").textContent="Que ce vœu t'accompagne toute l'année. Joyeux anniversaire, Wassila ! 💖";this.textContent="Vœu envoyé ♥";this.disabled=true;confetti(40)});
+</script></body></html>
